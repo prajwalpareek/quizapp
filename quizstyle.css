@@ -1,0 +1,88 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    /* border: 2px solid black; */
+    align-items: flex-start;
+}
+
+.choices{
+    display: flex;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    /* width: 100%; */
+}
+
+body{
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(208, 208, 231);
+}
+
+.option{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(164, 189, 243);
+}
+
+.leftsec{
+    /* border: 2px solid black; */
+    background-color: rgb(128, 128, 243);
+    padding: 10px;
+    width: 20px;
+}
+
+.options{
+    /* border: 2px solid red; */
+    width: 100%;
+}
+
+div.option:hover{
+    /* box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0px 0px 5px 0px rgb(5, 3, 3);
+}
+
+.correct{
+    background-color: rgb(69, 241, 69);
+}
+
+.wrong{
+    background-color: rgb(247, 62, 62);
+}
+
+#upper-section{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+ 
+
+#progress-bar{
+    border: 2px solid black;
+    height: 20px;
+    width: 150px;
+    /* margin-left: 20px; */
+    margin-top: 25px;
+}
+
+#progress-bar-fill{
+    /* border: 2px solid black; */
+    height: 20px;
+    background-color: rgb(78, 218, 211);
+}
+#score{
+    margin: 0px;
+}
+
+#left-item{
+    margin-left: 30px;
+}
+#right-item{
+    margin-right: 60px;
+}
+

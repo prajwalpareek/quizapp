@@ -1,0 +1,31 @@
+h1{
+    color: blue;
+    font-size: 50px;
+}
+
+body{
+    background-color: rgb(201, 214, 218);
+}
+
+.cont{
+    display: flex;
+    /* border: 2px solid black; */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    /* height: 100vh; */
+}
+
+.butt{
+    display: flex;
+    flex-direction: column;
+}
+
+#id1{
+    margin-top: 10px;
+    width: 100px;
+}
+#id2{
+    /* margin-top: 20px; */
+    width: 100px;
+}
