@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     /* border: 2px solid black; */
-    height: 35rem;
+    height: 40rem;
     justify-content: center;
     font-size: 40px;
     font-weight: bold;
@@ -21,4 +21,8 @@ button{
 
 #mscor{
     margin-bottom: 10px;
+}
+
+body{
+    background-image: linear-gradient(rgb(241, 172, 172), rgb(139, 212, 221));
 }
