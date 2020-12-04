@@ -1,0 +1,25 @@
+[   {
+        "question":"What does HTML stand for?",
+        "choice1":"Hyper Text Markup Language",
+        "choice2":"Home Tool Markup Language",
+        "choice3":"Hyperlinks and Text Markup Language",
+        "choice4":"invalid answer",
+        "answer":"1"
+    },
+    {
+        "question":"Choose the correct HTML tag for the largest heading",
+        "choice1":"Head",
+        "choice2":"h1",
+        "choice3":"h6",
+        "choice4":"heading",
+        "answer":"2"
+    },
+    {
+        "question":"What is the correct HTML tag for inserting a line break?",
+        "choice1":"break",
+        "choice2":"br",
+        "choice3":"lb",
+        "choice4":"brs",
+        "answer":"2"
+    }
+]

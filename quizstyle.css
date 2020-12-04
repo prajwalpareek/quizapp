@@ -60,7 +60,6 @@ div.option:hover{
     font-size: 30px;
     font-weight: bold;
 }
- 
 
 #progress-bar{
     border: 2px solid black;
@@ -86,3 +85,29 @@ div.option:hover{
     margin-right: 60px;
 }
 
+@media all and (max-width: 600px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        /* border: 2px solid black; */
+        align-items: flex-start;
+    }
+    #left-item{
+        margin-left: 0px;
+    }
+    #right-item{
+        margin-right: 0px;
+    }
+    .prefix{
+        margin-bottom: 0px;
+    }
+    #score{
+        font-size: 50px;
+    }
+    #ques{
+        font-size: 25px;
+        margin-top: 40px;
+    }
+}

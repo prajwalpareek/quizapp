@@ -1,0 +1,24 @@
+.cont1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid black; */
+    height: 35rem;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#text1{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+}
+
+#mscor{
+    margin-bottom: 10px;
+}

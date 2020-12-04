@@ -1,0 +1,13 @@
+#highsco{
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid black; */
+    height: 500px;
+    align-items: center;
+    font-size: 100px;
+    color: rgb(38, 76, 241);
+}
+
+body{
+    background-color: rgb(188, 250, 245);
+}

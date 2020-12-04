@@ -3,32 +3,7 @@ let choices = Array.from(document.querySelectorAll(".option"));
 let myscore = document.querySelector("#score")
 let progbar = document.querySelector("#progress-bar-fill")
 let numque = document.querySelector("#numques")
-
-let questions=[{
-    question:"What does HTML stand for?",
-    choice1:"Hyper Text Markup Language",
-    choice2:"Home Tool Markup Language",
-    choice3:"Hyperlinks and Text Markup Language",
-    choice4:"invalid answer",
-    answer:1
-},
-{
-    question:"Choose the correct HTML tag for the largest heading",
-    choice1:"Head",
-    choice2:"h1",
-    choice3:"h6",
-    choice4:"heading",
-    answer:2
-},
-{
-    question:"What is the correct HTML tag for inserting a line break?",
-    choice1:"break",
-    choice2:"br",
-    choice3:"lb",
-    choice4:"brs",
-    answer:2
-
-}]
+let totalques = document.querySelector("#totalQues")
 
 let currentQuestion={};
 let acceptAnswers=false;
@@ -36,7 +11,33 @@ let score=0;
 let questionCounter=0
 let availableQuestions=[];
 const CORRECT_BONUS=10
-const MAX_QUESTIONS=3
+const MAX_QUESTIONS=5
+let questions = []
+
+fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple')
+.then(response => response.json())
+.then(loadedQuestions => {
+    questions = loadedQuestions.results.map(loadQuestions=>{
+        const formattedQuestions = {
+            question : loadQuestions.question
+        }
+        const answerChoices = [...loadQuestions.incorrect_answers]
+        formattedQuestions.answer = Math.floor(Math.random()*4)+1
+        answerChoices.splice(
+            formattedQuestions.answer-1,
+            0,
+            loadQuestions.correct_answer
+        )
+        answerChoices.forEach((elem,index)=>{
+            formattedQuestions["choice"+(index+1)] = elem;
+        })
+        return formattedQuestions
+    })
+    startgame()
+})
+.catch((error) => {
+    console.error('Error:', error);
+  });
 
 let startgame = ()=>{
     questionCounter = 0
@@ -48,11 +49,12 @@ let startgame = ()=>{
 
 let getNewQuestion = ()=>{
     if(availableQuestions.length===0 || questionCounter>=MAX_QUESTIONS){
-        return 
+        return window.location.assign('result.html');
     }
 
     questionCounter++;
     numque.innerText = questionCounter
+    totalques.innerText = MAX_QUESTIONS
     let per = questionCounter/MAX_QUESTIONS*100
     progbar.style.width = `${per}%`
     const questionIndex = Math.floor(Math.random()*availableQuestions.length)
@@ -70,6 +72,7 @@ let getNewQuestion = ()=>{
     acceptAnswers = true
 }
 
+let count2 = 0
 choices.forEach((choice)=>{
     choice.addEventListener("click",e=>{
         if(!acceptAnswers) return;
@@ -79,8 +82,25 @@ choices.forEach((choice)=>{
         const classTOApply = selectedAnswer==currentQuestion.answer ? "correct" : "wrong"
         selectedchoice.classList.add(classTOApply)
         if(classTOApply=="correct"){
-            myscore.innerText = parseInt(myscore.innerText) + CORRECT_BONUS;
+            // myscore.innerText = parseInt(myscore.innerText) + CORRECT_BONUS;
+            score = score + CORRECT_BONUS;
+            myscore.innerText = score
         }
+    
+        let arr
+        if(localStorage.getItem('maxscore') === null){
+            arr = []
+            localStorage.setItem('maxscore', JSON.stringify(arr))
+        }
+        count2++
+        if(count2==MAX_QUESTIONS){
+            a = JSON.parse(localStorage.getItem('maxscore'));   
+            a.push(score)
+            // console.log(a)
+            localStorage.setItem('maxscore', JSON.stringify(a));
+        }
+
+        localStorage.setItem('finalscore', score);
         setTimeout(()=>{
             selectedchoice.classList.remove(classTOApply)
             getNewQuestion()
@@ -89,7 +109,6 @@ choices.forEach((choice)=>{
     })
 })
 
-startgame()
 
 
 
@@ -103,28 +122,6 @@ startgame()
 
 
 
-
-
-
-
-
-// let count = 0
-// let len = questions.length
-// var i1 = 0;
-
-// function dumps(i){
-//     question.innerText = questions[i].question;
-//     for(let j = 0; j<4; j++){
-//         option[j].innerText = questions[i][`choice${j+1}`]
-//     }
-//     i1 += 1;
-// }
-
-// dumps(i1);
-
-// for(let i = 0; i<4; i++){
-//     option[i].addEventListener("click", function(){dumps(i1)})
-// }
 
 
          
